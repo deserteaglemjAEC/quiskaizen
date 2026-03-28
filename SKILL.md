@@ -81,6 +81,8 @@ See [source-hierarchy.md](resources/source-hierarchy.md) for source quality rank
 
 **Goal:** Find consensus, contradictions, and gaps across all sources.
 
+Run synthesis and cross-examination in parallel if using separate tools (e.g., NotebookLM for synthesis while queuing Gemini Pro for cross-exam).
+
 1. Create a NotebookLM notebook for the topic
 2. Push ALL Phase 1 + Phase 2 material as sources
 3. Ask these 4 questions:
