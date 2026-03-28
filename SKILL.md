@@ -119,9 +119,12 @@ See [cross-examination-prompts.md](resources/cross-examination-prompts.md) for p
 
 1. Choose format: reference doc, checklist, template, or decision doc
 2. Use the artifact template: [artifact-template.md](resources/artifact-template.md) — verify the artifact matches the template structure before finishing
-3. Include a "Surprises" section: document what you assumed wrong or found unexpected during research
-4. Include a "Limitations" section: acknowledge gaps in scope, what was not covered, and why
-5. Run eval: `bash ${CLAUDE_SKILL_DIR}/scripts/eval-research-artifact.sh <artifact>`
-6. Target: 20/20 assertions passing
+3. **Include a Table of Contents** at the top of every artifact — link to each major section
+4. **Include a `## Sources` section** at the bottom with a numbered list of all sources used across all phases. Always cite official vendor/creator documentation as source #1 when it exists.
+5. **Inline citations per section** — each content section must attribute claims to specific sources. Do not write unsourced analysis sections.
+6. Include a "Surprises" section: document what you assumed wrong or found unexpected during research
+7. Include a "Limitations" section: acknowledge gaps in scope, what was not covered, and why
+8. Run eval: `bash ${CLAUDE_SKILL_DIR}/scripts/eval-research-artifact.sh <artifact>`
+9. Target: 20/20 assertions passing
 
 **Output:** Single markdown file saved to `research/YYYY-MM-DD-[topic].md`
