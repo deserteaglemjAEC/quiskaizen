@@ -4,6 +4,22 @@
 
 Born from real-world use optimizing Claude Code infrastructure across marketing, e-commerce, and engineering projects. This workflow replaces the "Google it and summarize" approach with a structured pipeline that produces artifacts you can actually act on.
 
+## Prerequisites
+
+Before running the workflow, ensure you have:
+
+| Tool | Required? | What it does | Setup |
+|------|-----------|-------------|-------|
+| [/last30days](https://github.com/the-dim/last30days-skill) | Recommended | Multi-platform discovery (Reddit, X, YouTube, TikTok, HN) | `npx skills add the-dim/last30days-skill` |
+| [Firecrawl](https://firecrawl.dev) | Recommended | Web scraping of primary sources | `npm i -g firecrawl-cli && firecrawl login --browser` |
+| [NotebookLM](https://notebooklm.google.com) | Recommended | Cross-model synthesis with Gemini | Free Google account + [NotebookLM MCP](https://github.com/jmagar/notebooklm-mcp) |
+| Gemini API | Optional | Cross-examination (Phase 4) | API key or Gemini MCP server |
+| Claude Code | Required | Orchestration + artifact generation | Already installed if you're reading this |
+
+**Time estimate:** 40-55 minutes with tools pre-configured. First-time tool setup adds 15-30 minutes.
+
+**Minimum viable workflow (no external tools):** WebSearch → manual reading → Claude synthesis → Claude self-cross-examination → artifact. Works without any API keys — just Claude Code itself.
+
 ## The Problem
 
 Most AI-assisted research stops at Phase 1: run a search, get a summary, call it done. This produces **summaries of summaries** — you feel informed but you're working from someone else's synthesis, inheriting their biases and blind spots.
@@ -47,6 +63,8 @@ Run ONE broad query to map the terrain. You're not trying to learn everything �
 
 **Output:** A list of PEOPLE and SOURCES to go deeper on.
 
+**If /last30days returns <3 results:** Topic is too niche for social platforms. Fallback to: `firecrawl search "[topic] best practices"` + `WebSearch "[topic] guide"`. Use web results as your discovery source instead.
+
 **Example:**
 ```
 /last30days "Claude Code .claude directory structure"
@@ -86,6 +104,8 @@ wait
 **DO NOT** run more discovery queries. Diminishing returns.
 **DO** read the sources that Phase 1 pointed you to.
 
+**Fallback chain if Firecrawl blocks a site:** Firecrawl → `gemini-analyze-url` MCP → Context7 MCP (for library docs) → GitHub MCP (for repos) → ask user to paste content manually.
+
 > This is where most people stop. They do Phase 1 and think they're done. They have SUMMARIES. They don't have KNOWLEDGE.
 
 ---
@@ -113,6 +133,8 @@ Then ask NotebookLM these **four questions:**
 **Why NotebookLM and not just Claude?**
 
 Claude already synthesized in Phase 1. Asking Claude again with the same material = same biases, same blind spots. NotebookLM uses Gemini — different model, different training, different synthesis patterns. **The VALUE is the disagreement between the two syntheses.**
+
+**If NotebookLM is unavailable:** Use Gemini Deep Research as the synthesis engine. Or open a SEPARATE Claude session (fresh context, no prior bias) and paste the raw material. The key is using a DIFFERENT model or context — not the same one that did Phase 1.
 
 ---
 
