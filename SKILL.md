@@ -106,13 +106,19 @@ See [cross-examination-prompts.md](resources/cross-examination-prompts.md) for p
 
 **Output:** List of specific corrections with classification (valid correction / valid nuance / overstated / wrong).
 
+**Warning:** Do not skip cross-examination because synthesis "looks solid" — confirmation bias is the #1 failure mode. Avoid using the same model for both synthesis and cross-examination.
+
+**Before moving to Phase 5:** Verify the synthesis produced at least 3 consensus points and identified at least 1 contradiction. If not, the source material was too thin — go back to Phase 2 and add more sources before proceeding.
+
 ## Phase 5: Distill (5 min)
 
 **Goal:** Compress everything into ONE actionable artifact.
 
 1. Choose format: reference doc, checklist, template, or decision doc
-2. Use the artifact template: [artifact-template.md](resources/artifact-template.md)
-3. Run eval: `bash ${CLAUDE_SKILL_DIR}/scripts/eval-research-artifact.sh <artifact>`
-4. Target: 20/20 assertions passing
+2. Use the artifact template: [artifact-template.md](resources/artifact-template.md) — verify the artifact matches the template structure before finishing
+3. Include a "Surprises" section: document what you assumed wrong or found unexpected during research
+4. Include a "Limitations" section: acknowledge gaps in scope, what was not covered, and why
+5. Run eval: `bash ${CLAUDE_SKILL_DIR}/scripts/eval-research-artifact.sh <artifact>`
+6. Target: 20/20 assertions passing
 
 **Output:** Single markdown file saved to `research/YYYY-MM-DD-[topic].md`
