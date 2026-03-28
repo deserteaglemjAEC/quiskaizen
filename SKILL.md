@@ -50,6 +50,7 @@ Before starting, verify tools are available:
    - Primary source URLs they reference
    - Key vocabulary/terminology
 3. If /last30days returns <3 results: fallback to `firecrawl search "[topic]"` + WebSearch
+4. If Phase 1 produces zero results from all fallbacks, the topic may be too niche or too new — ask the user for seed URLs or known experts before proceeding. Do not skip to Phase 2 with nothing found.
 
 **Aim for 8-12 total sources across all phases.** Ensure source diversity: mix source types (docs, repos, posts, videos) from different platforms and domains. Avoid clustering 3+ sources from the same site — it biases synthesis.
 
@@ -63,7 +64,7 @@ See [discovery-guide.md](resources/discovery-guide.md) for query strategies and 
 
 **Goal:** Read what experts ACTUALLY wrote, not summaries.
 
-1. Scrape 3-7 primary sources in PARALLEL using Firecrawl
+1. Scrape 3-7 primary sources in PARALLEL using Firecrawl (run discovery queries in parallel too — Phase 1 comparison queries and Phase 2 scraping can overlap when sources are already known)
 2. Priority order:
    - Official documentation (vendor/creator docs)
    - Top-cited repositories (actual code via GitHub MCP)
