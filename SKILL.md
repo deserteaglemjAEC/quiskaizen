@@ -38,7 +38,12 @@ Before starting, verify tools are available:
 3. NotebookLM MCP — check if `mcp__notebooklm-mcp__notebook_create` is available
 4. Gemini MCP — check if `mcp__gemini-vision__gemini-query` is available
 
-**Minimum viable (no external tools):** WebSearch > manual reading > Claude synthesis > Claude self-cross-examination > artifact. Works with zero API keys.
+**Minimum viable (no external tools):** Works with zero API keys. Phase-by-phase fallbacks:
+- **Phase 1:** Use WebSearch to find key voices and sources (3+ searches with different query angles)
+- **Phase 2:** Use WebFetch to read source URLs directly. If blocked, ask user to paste content
+- **Phase 3:** Synthesize in the current session — write the 4 synthesis questions as a prompt to yourself, answer them based on Phase 2 material. Save synthesis to a file to free context
+- **Phase 4:** Cross-examine your own synthesis — re-read the synthesis file and argue against each point. Document corrections inline
+- **Phase 5:** Distill as normal — the artifact template works regardless of tools used
 
 ## Phase 1: Discover (5 min)
 
