@@ -1,5 +1,10 @@
 # AI Research Workflow
 
+[![GitHub stars](https://img.shields.io/github/stars/deserteaglemjAEC/ai-research-workflow?style=flat-square)](https://github.com/deserteaglemjAEC/ai-research-workflow/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/deserteaglemjAEC/ai-research-workflow?style=flat-square)](https://github.com/deserteaglemjAEC/ai-research-workflow/releases)
+[![Last commit](https://img.shields.io/github/last-commit/deserteaglemjAEC/ai-research-workflow?style=flat-square)](https://github.com/deserteaglemjAEC/ai-research-workflow/commits/main)
+
 **A 5-phase research methodology for building expert-level understanding of any topic in under an hour.**
 
 Born from real-world use optimizing Claude Code infrastructure across marketing, e-commerce, and engineering projects. This workflow replaces the "Google it and summarize" approach with a structured pipeline that produces artifacts you can actually act on.
