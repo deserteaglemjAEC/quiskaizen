@@ -198,6 +198,14 @@ The output of research is NOT a report. It's one of:
 
 ---
 
+## Mental Model
+
+Beyond the 5-phase workflow, there's a broader framework for approaching ANY task with AI agents: the 3-Question Decision Router, the Validation Chain, and how Research + Execution + Improvement work as layers.
+
+**[Read the full Mental Model](MENTAL-MODEL.md)**
+
+---
+
 ## Origin
 
 This workflow was developed during a research session optimizing Claude Code's `.claude/` directory structure. The research covered:
