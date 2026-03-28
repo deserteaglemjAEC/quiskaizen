@@ -7,11 +7,29 @@
 
 > **Research. Execute. Improve. Validate against reality.**
 
-**QuisKaizen** (Quis + 改善 Kaizen) — a framework for approaching any task with AI agents. Includes a 5-phase research methodology, a mental model for AI-assisted work, and a mechanical evaluation system.
+**QuisKaizen** (Quis + 改善 Kaizen) — a methodology for approaching any task with AI agents. Includes a 5-phase research workflow, a mental model for AI-assisted work, and a mechanical evaluation system.
 
 Born from real-world use optimizing Claude Code infrastructure across marketing, e-commerce, and engineering projects. This replaces the "Google it and summarize" approach with a structured pipeline that produces artifacts you can actually act on.
 
+If you find this useful, [star the repo](https://github.com/deserteaglemjAEC/quiskaizen) and [share it on X](https://twitter.com/intent/tweet?text=QuisKaizen%20%E2%80%94%20a%20research%20methodology%20for%20AI%20agents%20that%20actually%20produces%20artifacts%20you%20can%20act%20on.%20Research.%20Execute.%20Improve.%20Validate%20against%20reality.&url=https%3A%2F%2Fgithub.com%2FdeserteaglemjAEC%2Fquiskaizen).
+
 **[Read the Mental Model](MENTAL-MODEL.md)** — the 3-Question Router, the 3 Layers, and the Validation Chain.
+
+## Quick Start
+
+```bash
+# 1. Read the mental model (5 min)
+#    Understand the 3-Question Router before using any tools
+cat MENTAL-MODEL.md
+
+# 2. Run the research workflow on any topic (40-55 min)
+#    Follow the 5 phases below — or use the Claude Code skill:
+#    ~/.claude/skills/research-workflow/
+
+# 3. Evaluate your artifact
+bash eval-research-artifact.sh your-artifact.md
+# Target: 20/20 assertions passing
+```
 
 ## Prerequisites
 
@@ -210,15 +228,50 @@ Beyond the 5-phase workflow, there's a broader framework for approaching ANY tas
 
 ---
 
+## What This Is (and Isn't)
+
+**This IS:**
+- A methodology you can follow right now in Claude Code
+- A mental model for thinking about AI-assisted work
+- An eval script that turns subjective "is this good?" into a mechanical number
+- A Claude Code skill you can install and use today
+
+**This is NOT:**
+- A software tool you install and run
+- An automated pipeline (yet — see Roadmap)
+- A wrapper around autoresearch (yet)
+
+The methodology is the product right now. The automation is coming.
+
+---
+
+## Roadmap
+
+| Status | What |
+|--------|------|
+| **Shipped** | 5-phase research workflow |
+| **Shipped** | Mental model (3-Question Router, 3 Layers, Validation Chain) |
+| **Shipped** | Eval script (20 binary assertions) |
+| **Shipped** | Claude Code skill (`~/.claude/skills/research-workflow/`) |
+| **Building** | Self-improving skill (autoresearch loop on the workflow itself) |
+| **Planned** | Bilevel autoresearch wrapper — outer loop that detects failure modes (idea exhaustion, local optima, metric gaming) and injects strategy corrections. Based on [arXiv 2603.23420](https://arxiv.org/abs/2603.23420). |
+
+---
+
+## Limitations
+
+- The eval script measures **structure, not accuracy**. It checks for citations, comparison tables, and action checklists — but can't judge whether your research conclusions are correct. Only real-world outcomes (Layer 0) can do that.
+- Phase 3 (synthesis) works best with NotebookLM or Gemini. Using Claude to synthesize Claude's own research = same biases. The workflow explicitly requires a different model.
+- Time estimates assume tools are pre-configured. First-time setup adds 15-30 minutes.
+- The methodology was developed for Claude Code. It can be adapted to other AI tools, but the specific tool recommendations are Claude-centric.
+
+---
+
 ## Origin
 
-This workflow was developed during a research session optimizing Claude Code's `.claude/` directory structure. The research covered:
-- Anthropic's official documentation (`code.claude.com/docs/en/claude-directory`)
-- Community analysis across Reddit (r/ClaudeAI, r/VibeCodeDevs), X, and YouTube
-- Production-tested patterns from Matt Pocock, Simon Scrapes, and the Complete Guide series
-- Comparative analysis of the diet103/claude-code-infrastructure-showcase (9.4K stars)
+This workflow was developed during a single Claude Code session (March 28, 2026) that started with "make an ASCII of my `~/.claude/` directory" and evolved into mapping 27,455 files, researching optimal structure across 14 sources, building a 5-phase methodology, stress-testing it with scenarios and multi-persona review, and publishing it.
 
-The workflow itself emerged from noticing that Phase 1 (discovery) was being treated as the entire research process, when it should be just the starting point.
+The methodology emerged from the work. It wasn't planned — it was extracted.
 
 ---
 
