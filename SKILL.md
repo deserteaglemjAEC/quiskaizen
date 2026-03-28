@@ -28,15 +28,15 @@ Total time: 40-55 minutes with tools pre-configured.
 
 ## Context Budget
 
-**Warning:** This workflow consumes significant context window. Budget ~20% per phase (Discover + Read = 40%, Synthesize + Cross-Examine = 30%, Distill = 10%, overhead = 20%). If context pressure exceeds 70%, save progress and split into a fresh session to continue from Phase 3 onward. Context exhaustion mid-synthesis produces hollow artifacts — avoid by monitoring context window usage and offloading raw material to files early.
+**Warning:** This workflow consumes significant context window. Budget ~20% per phase (Discover + Read = 40%, Synthesize + Cross-Examine = 30%, Distill = 10%, overhead = 20%). If context pressure exceeds 70%, save progress to a handoff file (`research/.research-handoff-[topic].md`) containing: (1) topic + angle, (2) sources collected so far with URLs, (3) which phase you're at, (4) any partial synthesis. Then start a fresh session with: "Read research/.research-handoff-[topic].md and continue from Phase N." Context exhaustion mid-synthesis produces hollow artifacts — avoid by offloading raw material to `.firecrawl/` files early.
 
 ## Prerequisites Check
 
 Before starting, verify tools are available:
-1. `/last30days` skill — run `ls ~/.claude/plugins/marketplaces/last30days-skill/ 2>/dev/null`
-2. Firecrawl — run `firecrawl --status`
-3. NotebookLM MCP — check if `mcp__notebooklm-mcp__notebook_create` is available
-4. Gemini MCP — check if `mcp__gemini-vision__gemini-query` is available
+1. `/last30days` skill (recent social/web search across Reddit, X, YouTube, HN) — `ls ~/.claude/plugins/marketplaces/last30days-skill/ 2>/dev/null`
+2. Firecrawl (web scraping with JS rendering) — `firecrawl --status`
+3. NotebookLM MCP (multi-source synthesis via Google's AI) — check `mcp__notebooklm-mcp__notebook_create`
+4. Gemini MCP (cross-examination + deep research) — check `mcp__gemini-vision__gemini-query`
 
 **Minimum viable (no external tools):** Works with zero API keys. Phase-by-phase fallbacks:
 - **Phase 1:** Use WebSearch to find key voices and sources (3+ searches with different query angles)
@@ -78,7 +78,9 @@ See [discovery-guide.md](resources/discovery-guide.md) for query strategies and 
 
 **Fallback chain:** Firecrawl > `gemini-analyze-url` > Context7 MCP > GitHub MCP > ask user to paste
 
-**Output:** Raw material saved to `.firecrawl/` directory.
+**Output:** Raw material saved to `.firecrawl/` directory. Add `.firecrawl/` to your project's `.gitignore` to avoid committing scraped content.
+
+**Rate each source** as you read: HIGH (official docs, peer-reviewed), MEDIUM (expert blog with evidence), LOW (opinion, unsourced claims). Drop LOW sources unless nothing better exists. Use the Agent tool to dispatch parallel scraping sub-agents for faster Phase 2.
 
 See [source-hierarchy.md](resources/source-hierarchy.md) for source quality ranking.
 
@@ -95,6 +97,7 @@ Run synthesis and cross-examination in parallel if using separate tools (e.g., N
    - "Where do sources contradict each other?"
    - "What's in official docs that nobody discusses?"
    - "What's the community doing that isn't documented?"
+   - "What changed in the last 6 months that older sources don't reflect?"
 
 **If NotebookLM unavailable:** Use Gemini Deep Research, or a SEPARATE Claude session with fresh context.
 
