@@ -1,0 +1,5 @@
+# metric_direction: higher_is_better
+iteration	commit	metric	delta	guard	status	description
+0	bc6793b7c	13	0.0	-	baseline	initial state — 13/18 passing
+1	-	17	+4	-	keep	add content sources — problem-discovery, failure stories, anonymized clients, BIP
+2	-	18	+1	-	keep	add human-in-the-loop requirement to generation instructions

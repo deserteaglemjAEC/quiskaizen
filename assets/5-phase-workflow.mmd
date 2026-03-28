@@ -1,0 +1,59 @@
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a2e', 'primaryTextColor': '#e0e0e0', 'primaryBorderColor': '#16213e', 'lineColor': '#0f3460', 'secondaryColor': '#16213e', 'tertiaryColor': '#0f3460' } } }%%
+
+flowchart TD
+    START([Research Topic]) --> P1
+
+    P1["Phase 1: DISCOVER
+    Find WHO is talking, map landscape
+    --------------------------------
+    4+ web searches
+    8-12 sources identified"]
+
+    P1 --> P2
+
+    P2["Phase 2: READ PRIMARIES
+    Read what experts actually wrote
+    --------------------------------
+    Fetch top 6-8 sources
+    Extract key claims + data"]
+
+    P2 --> P3
+
+    P3["Phase 3: SYNTHESIZE
+    Cross-reference, find consensus + gaps
+    --------------------------------
+    Comparison tables
+    Inline citations for every claim"]
+
+    P3 --> P4
+
+    P4["Phase 4: CROSS-EXAMINE
+    Challenge claims, test assumptions
+    --------------------------------
+    3-5 counter-questions
+    Multi-model synthesis"]
+
+    P4 --> P5
+
+    P5["Phase 5: DISTILL
+    Write artifact, run evaluator
+    --------------------------------
+    20 binary assertions
+    Target: 18+/20"]
+
+    P5 --> EVAL{Score >= 18/20?}
+
+    EVAL -->|Yes| DONE([Research Artifact Complete])
+    EVAL -->|No| ITERATE["Iterate: Fix failing assertions
+    Re-run evaluator"]
+    ITERATE --> P5
+
+    style START fill:#0f3460,stroke:#e94560,color:#e0e0e0
+    style DONE fill:#0f3460,stroke:#53d769,color:#e0e0e0
+    style P1 fill:#1a1a2e,stroke:#e94560,color:#e0e0e0
+    style P2 fill:#1a1a2e,stroke:#e94560,color:#e0e0e0
+    style P3 fill:#1a1a2e,stroke:#e94560,color:#e0e0e0
+    style P4 fill:#1a1a2e,stroke:#e94560,color:#e0e0e0
+    style P5 fill:#1a1a2e,stroke:#e94560,color:#e0e0e0
+    style EVAL fill:#16213e,stroke:#e94560,color:#e0e0e0
+    style ITERATE fill:#16213e,stroke:#f5a623,color:#e0e0e0

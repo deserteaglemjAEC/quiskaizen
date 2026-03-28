@@ -1,0 +1,8 @@
+# metric_direction: higher_is_better
+iteration	metric	delta	status	description
+0	91	0	baseline	initial test tweet — 14/15 assertions, 91/100 combined
+1	95	+4	keep	add 90-char max line length rule to generation instructions
+2	100	+5	keep	fix rubric Voice contraction check to match broader assertion patterns
+3	92	-8	keep	add failure story + problem-discovery hook patterns to master-prompt and eval
+4	91	-1	keep	expand number detection + failure story hooks in eval; fix rubric niche scoring
+5	100	+9	keep	tighter build-in-public tweet — all 15 assertions + 100/100 rubric

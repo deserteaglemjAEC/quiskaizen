@@ -1,0 +1,29 @@
+name: Methodology Feedback
+description: Suggest improvements to the QuisKaizen methodology or mental model
+labels: ["feedback", "methodology"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part of the methodology?
+      options:
+        - 5-phase research workflow
+        - 3-Question Router
+        - Validation Chain
+        - Eval assertions / script
+        - Mental model (MENTAL-MODEL.md)
+        - Overall approach
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: What would you change or improve?
+      description: Be specific. Reference the section or step if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context (optional)
+      description: Have you tried this methodology? What was your experience?

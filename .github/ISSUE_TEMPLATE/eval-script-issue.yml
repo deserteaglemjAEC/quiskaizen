@@ -1,0 +1,33 @@
+name: Eval Script Issue
+description: Report a problem with eval-research-artifact.sh
+labels: ["bug", "eval-script"]
+body:
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue type
+      options:
+        - False positive (assertion passes when it shouldn't)
+        - False negative (assertion fails when it shouldn't)
+        - Script error (crashes, bad exit code)
+        - Portability issue (doesn't work on my OS/shell)
+        - Missing assertion (quality signal not checked)
+    validations:
+      required: true
+  - type: input
+    id: assertion
+    attributes:
+      label: Which assertion number?
+      description: "e.g., Assertion 7"
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the issue
+      description: Include the command you ran and the output.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: "OS, shell version (e.g., macOS 15.3, zsh 5.9)"

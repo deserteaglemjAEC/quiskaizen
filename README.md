@@ -31,6 +31,23 @@ bash eval-research-artifact.sh your-artifact.md
 # Target: 20/20 assertions passing
 ```
 
+## Install as Claude Code Plugin
+
+```bash
+# Option A: Plugin mode (recommended — auto-discovers skills)
+git clone https://github.com/deserteaglemjAEC/quiskaizen.git ~/repos/quiskaizen
+claude --plugin-dir ~/repos/quiskaizen
+# Skills become: /quiskaizen:research-workflow
+
+# Option B: Symlink mode (shorter command name)
+git clone https://github.com/deserteaglemjAEC/quiskaizen.git ~/repos/quiskaizen
+ln -sfn ~/repos/quiskaizen/skills/research-workflow ~/.claude/skills/research-workflow
+# Skill becomes: /research-workflow
+
+# Option C: Just read and follow manually
+# No install needed — the methodology is in the README and MENTAL-MODEL.md
+```
+
 ## Prerequisites
 
 Before running the workflow, ensure you have:

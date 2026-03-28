@@ -1,0 +1,10 @@
+{
+  "name": "quiskaizen",
+  "description": "5-phase research methodology with binary assertion evaluation. Research. Execute. Improve. Validate against reality.",
+  "version": "3.0.0",
+  "author": {
+    "name": "deserteaglemjAEC"
+  },
+  "repository": "https://github.com/deserteaglemjAEC/quiskaizen",
+  "license": "MIT"
+}
