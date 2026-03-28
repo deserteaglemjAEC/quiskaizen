@@ -26,6 +26,10 @@ A 5-phase methodology: **Discover > Read Primaries > Synthesize > Cross-Examine 
 
 Total time: 40-55 minutes with tools pre-configured.
 
+## Context Budget
+
+**Warning:** This workflow consumes significant context window. Budget ~20% per phase (Discover + Read = 40%, Synthesize + Cross-Examine = 30%, Distill = 10%, overhead = 20%). If context pressure exceeds 70%, save progress and split into a fresh session to continue from Phase 3 onward. Context exhaustion mid-synthesis produces hollow artifacts — avoid by monitoring context window usage and offloading raw material to files early.
+
 ## Prerequisites Check
 
 Before starting, verify tools are available:
