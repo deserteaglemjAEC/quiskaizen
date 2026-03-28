@@ -6,7 +6,7 @@
 SKILL="$HOME/.claude/skills/research-workflow/SKILL.md"
 RESOURCES="$HOME/.claude/skills/research-workflow/resources"
 PASS=0
-TOTAL=35
+TOTAL=41
 
 echo "=== SKILL.md EVALUATION ==="
 
@@ -143,6 +143,26 @@ if grep -qi 'total.*source\|minimum.*[0-9].*source.*across\|combined.*source\|ov
 
 # 35. Template verification instruction (not just linking the template)
 if grep -qi 'verify.*template\|check.*against.*template\|match.*template\|compare.*artifact.*template\|ensure.*follow.*template' "$SKILL"; then ((PASS++)); echo "35. PASS — artifact template verification instruction"; else echo "35. FAIL — template linked but no verification instruction"; fi
+
+# === ARTIFACT STRUCTURE INSTRUCTIONS (derived from artifact eval failures) ===
+
+# 36. Instruct Table of Contents in artifact
+if grep -qi 'table of contents\|include.*toc\|add.*toc\|## Table' "$SKILL"; then ((PASS++)); echo "36. PASS — instructs Table of Contents in artifact"; else echo "36. FAIL — no instruction for Table of Contents in artifact"; fi
+
+# 37. Instruct dedicated Sources section with numbered list
+if grep -qi 'sources.*section\|## Sources\|numbered.*source.*list\|list.*all.*source' "$SKILL"; then ((PASS++)); echo "37. PASS — instructs Sources section"; else echo "37. FAIL — no instruction for dedicated Sources section"; fi
+
+# 38. Instruct citing official/vendor documentation specifically
+if grep -qi 'cite.*official\|reference.*official\|official.*source.*must\|vendor.*doc.*cite\|always.*cite.*official' "$SKILL"; then ((PASS++)); echo "38. PASS — instructs citing official sources"; else echo "38. FAIL — no instruction to cite official sources"; fi
+
+# 39. Instruct inline citations per content section
+if grep -qi 'inline.*cit\|cite.*within.*section\|attribution.*per.*section\|each.*section.*must.*cite\|source.*attribution.*inline' "$SKILL"; then ((PASS++)); echo "39. PASS — instructs inline citations per section"; else echo "39. FAIL — no instruction for inline citations per section"; fi
+
+# 40. Instruct numbered corrections from cross-examination
+if grep -qi 'numbered.*correction\|list.*correction\|specific.*correction.*number\|correction.*1\|each.*correction' "$SKILL"; then ((PASS++)); echo "40. PASS — instructs numbered corrections"; else echo "40. FAIL — no instruction for numbered corrections"; fi
+
+# 41. Instruct minimum source count in final artifact (>= 8)
+if grep -qi '8.*source\|10.*source\|at least.*[89].*source\|minimum.*[89].*source\|8-12.*source' "$SKILL"; then ((PASS++)); echo "41. PASS — instructs minimum source count in artifact"; else echo "41. FAIL — no minimum source count for final artifact"; fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
