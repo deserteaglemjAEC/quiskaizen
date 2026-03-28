@@ -51,6 +51,10 @@ Before starting, verify tools are available:
    - Key vocabulary/terminology
 3. If /last30days returns <3 results: fallback to `firecrawl search "[topic]"` + WebSearch
 
+**Aim for 8-12 total sources across all phases.** Ensure source diversity: mix source types (docs, repos, posts, videos) from different platforms and domains. Avoid clustering 3+ sources from the same site — it biases synthesis.
+
+**Topic too broad?** Narrow down before starting: pick a specific angle, audience, or decision. "How to use Redis" is too broad. "Redis vs Memcached for session caching in Node.js" is scoped.
+
 **Output:** A list of PEOPLE and SOURCES for Phase 2.
 
 See [discovery-guide.md](resources/discovery-guide.md) for query strategies and fallback chains.
