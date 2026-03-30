@@ -1,10 +1,25 @@
 {
   "name": "quiskaizen",
-  "description": "5-phase research methodology with binary assertion evaluation. Research. Execute. Improve. Validate against reality.",
-  "version": "3.0.0",
+  "description": "Autonomous improvement engine with bilevel failure mode detection. 9 commands: autoresearch loop, plan, debug, fix, scenario, predict, security, ship, learn. Plus 5-phase research workflow. Inspired by Karpathy's autoresearch, improved with failure mode detection and domain-agnostic design.",
+  "version": "4.0.0",
   "author": {
     "name": "deserteaglemjAEC"
   },
   "repository": "https://github.com/deserteaglemjAEC/quiskaizen",
-  "license": "MIT"
+  "license": "MIT",
+  "skills": [
+    "skills/autoresearch/SKILL.md",
+    "skills/research-workflow/SKILL.md"
+  ],
+  "commands": [
+    "commands/autoresearch.md",
+    "commands/autoresearch/plan.md",
+    "commands/autoresearch/debug.md",
+    "commands/autoresearch/fix.md",
+    "commands/autoresearch/scenario.md",
+    "commands/autoresearch/predict.md",
+    "commands/autoresearch/security.md",
+    "commands/autoresearch/ship.md",
+    "commands/autoresearch/learn.md"
+  ]
 }
