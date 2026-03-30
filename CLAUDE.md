@@ -86,7 +86,7 @@ bash eval/eval-skill.sh
 
 ## What NOT To Do
 
-- Do NOT use Mermaid diagrams (ASCII only for terminal compatibility)
+- Use **Mermaid** in GitHub-facing files (README.md, assets/). Use **ASCII** in terminal-facing files (CLAUDE.md, protocol docs, command output). Different audiences, different formats.
 - Do NOT claim features that aren't implemented yet
 - Do NOT add tool-specific hard dependencies (the plugin works with Claude Code; protocol documents are tool-agnostic)
 
